@@ -13,8 +13,8 @@ class Atlantic {
 	var $format = "json"; // only works with json ;)
 	var $apiurl = "https://cloudapi.atlantic.net/api.php";
 	var $datef  = array("RFC2616" => 'D, d M Y H:i:s \G\M\T',
-						"ISO8601" => 'Y-m-d\TH:i:s\Z',
-						"MYSQL"   => 'Y-m-d H:i:s');
+			    "ISO8601" => 'Y-m-d\TH:i:s\Z',
+			    "MYSQL"   => 'Y-m-d H:i:s');
 	var $query;
 	var $res;
 
@@ -24,8 +24,8 @@ class Atlantic {
 	//
 	function Atlantic() {
 		if (!defined("ATL_API_KEY")  or 
-			!defined("ATL_API_PKEY") or 
-			!defined("ATL_API_VER")) { 
+		    !defined("ATL_API_PKEY") or 
+		    !defined("ATL_API_VER")) { 
 			die("Missing global vars\n");
 		}
 	}
@@ -51,12 +51,13 @@ class Atlantic {
 		$today = gmdate($this->datef["RFC2616"], $now);
 		$ts    = gmdate($this->datef["ISO8601"], $now);
 		$ruid  = $this->generate_uid();
-		$this->build_query(array(   "ACSAccessKeyId" => ATL_API_KEY,
-									"Action"         => $method,
-									"Version"        => ATL_API_VER,
-									"Format"         => $this->format,
-									"Timestamp"      => $now+21,
-									"Rndguid"        => $ruid));
+		$this->build_query(array("ACSAccessKeyId" => ATL_API_KEY,
+					 "Action"         => $method,
+					 "Version"        => ATL_API_VER,
+					 "Format"         => $this->format,
+					 "Timestamp"      => $now+21,
+					 "Rndguid"        => $ruid));
+
 		$sts   = $this->query["Timestamp"] . $this->query["Rndguid"];
 
 		//

@@ -21,7 +21,7 @@ switch ($argv[1]) {
 	case "describe-plan"     : $a->build_query(query_helper("planname,platform")); break;
 	case "describe-image"    : $a->build_query(query_helper("imageid")); break;
 	case "list-instances"	 : break;
-	case "run-instance"	     : $a->build_query(query_helper("servername,planname,imageid,serverqty")); break;
+	case "run-instance"      : $a->build_query(query_helper("servername,planname,imageid,serverqty")); break;
 	case "describe-instance" : $a->build_query(query_helper("instanceid")); break;
 	case "reboot-instance"   : $a->build_query(query_helper("instanceid,RebootType")); break;
 	case "terminate-instance": $a->build_query(query_helper("instanceid")); break;

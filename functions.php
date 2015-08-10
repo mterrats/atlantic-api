@@ -1,7 +1,8 @@
 <?php
 
-// functions, lots and a mess
+// auxiliar functions for the CLI test
 
+// print help
 function print_help() {
 	global $argv;
 	echo "\n./{$argv[0]} command args\n\n";
@@ -16,6 +17,7 @@ function print_help() {
 	die();
 }
 
+// prepares a string to be passed as an array with $argv[*]
 function query_helper($string) {
 	global $argv;
 	$keys = explode(",",$string);
